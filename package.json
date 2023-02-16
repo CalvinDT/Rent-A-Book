@@ -1,56 +1,44 @@
 {
-  "name": "shoe-dazzle",
+  "name": "rent-a-book",
   "version": "1.0.0",
   "description": "## Description",
-  "main": "server/index.js",
+  "main": "server.js",
+  "proxy": "http://localhost:3001",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production  --config webpack/webpack.prod.js",
-    "dev:client": "cross-env NODE_ENV=development webpack-dev-server  --config webpack/webpack.dev.js",
-    "dev:server": "nodemon",
-    "dev": "npm-run-all --parallel dev:*",
-    "start": "cross-env NODE_ENV=production node server/index.js",
-    "postinstall": "npm run build",
-    "seed:db": "node server/utils/seed.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CalvinDT/Shoe-Dazzle.git"
+    "url": "git+https://github.com/CalvinDT/Rent-A-Book.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CalvinDT/Shoe-Dazzle/issues"
+    "url": "https://github.com/CalvinDT/Rent-A-Book/issues"
   },
-  "homepage": "https://github.com/CalvinDT/Shoe-Dazzle#readme",
+  "homepage": "https://github.com/CalvinDT/Rent-A-Book#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "body-parser": "^1.20.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "bulma": "^0.9.0",
     "express": "^4.18.2",
-    "gridfs-stream": "^1.1.1",
-    "helmet": "^6.0.1",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.1",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.2",
-    "multer-gridfs-storage": "^1.3.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.3",
-    "react-router-dom": "^5.0.1",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "validatorjs": "^3.18.1"
+    "if-env": "^1.0.4",
+    "js": "^0.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "mongoose": "^5.9.27",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1",
-    "rimraf": "^2.6.3",
-    "webpack": "^4.46.0",
-    "webpack-dev-server": "^3.11.2"
+    "concurrently": "^5.2.0"
   }
 }
-
