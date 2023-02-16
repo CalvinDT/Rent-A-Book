@@ -59,7 +59,7 @@ router.put("/own/:id", async (req, res) => {
     res.json(ex);
   }
 });
-//saves the book to the suer
+//saves the book to the user
 router.put("/added/:id", async (req, res) => {
   try {
     console.log(req.body);
