@@ -11,7 +11,7 @@ router
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove)
- 
+  
 router.put("/renting/:id", async (req, res) => {
   try {
     console.log(req.params.id);
