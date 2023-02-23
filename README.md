@@ -59,8 +59,8 @@ This MERN stack application is a multi page book search engine that allows users
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) <br>
 
+## Contribution
 
-
-
-
-
+<a href="https://github.com/CalvinDT/Rent-A-Book/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=CalvinDT/Rent-A-Book" />
+</a>
