@@ -21,13 +21,6 @@
 
 This MERN stack application is a multi page book search engine that allows users to search up books, view their detailed information and save them (which they can view in the saved books page). Using Apollo Client, MongoDB and Mongoose, all transactions made are stored accordingly with high level authentication via tokens and JTW-decode to allow for secure access and unique data specific to each users.
 
-
-1. Customers can browse the shoe categories, products and brands
-2. Sellers or Merchants manage their own brand component
-3. Admins can manage and control the entire store app components 
-
-
-
 ## Technology:
 
 - [Mongoose](https://mongoosejs.com/)
@@ -52,6 +45,8 @@ This MERN stack application is a multi page book search engine that allows users
 - JSX / JavaScript
 - HTML
 - CSS
+
+## Installation
 
 
 
